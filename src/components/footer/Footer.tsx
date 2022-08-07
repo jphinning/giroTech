@@ -1,4 +1,4 @@
-import FooterStyles from "./style";
+import FooterStyles from "./FooterStyle";
 
 function Footer() {
   return <FooterStyles>HiveIn 2022</FooterStyles>;
