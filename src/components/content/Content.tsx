@@ -1,5 +1,5 @@
 import Router from "../../router/Router";
-import ContentStyles from "./style";
+import ContentStyles from "./ContentStyle";
 
 function Content() {
   return (
