@@ -1,4 +1,4 @@
-import Router from "../../pages/Router";
+import Router from "../../router/Router";
 import ContentStyles from "./style";
 
 function Content() {
