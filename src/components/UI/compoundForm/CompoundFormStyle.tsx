@@ -12,25 +12,28 @@ export const FlexCollumn = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  row-gap: 1em;
 `;
 
-export const Input = styled.input.attrs(
-  ({ size }: { size: string | undefined }) => ({
-    type: "text",
-    size: size || "1em",
-  })
-)`
+export const InputDiv = styled.div`
   background: #ffffff;
   border: 1px solid #dcdcdc;
   border-radius: 30px;
   width: inherit;
-  padding-bottom: ${({ size }: { size: string | undefined }) => size};
-  /* padding-top: 10px; */
   padding-left: 15px;
+  /* padding-bottom: 1em; */
+`;
+
+export const Input = styled.input`
+  background: #ffffff;
+  padding-bottom: 0.7em;
+  padding-right: 12em;
+  border: none;
   font-style: normal;
   font-weight: 400;
-  font-size: 18px;
-  line-height: 180%;
+  &:focus {
+    outline: none;
+  }
   color: #2d2d2d;
   margin: 5px;
 `;
@@ -74,9 +77,9 @@ export const CompoundLink = styled(Link)`
 `;
 
 export const Label = styled.p`
-  color: #686666;
+  color: #8f8f8f;
   font-style: normal;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 18px;
   margin: 0;
 `;
