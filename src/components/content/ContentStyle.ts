@@ -8,7 +8,7 @@ const ContentStyles = styled(Content)`
   background-image: url(imgs/bg.svg), url(imgs/Cloud.svg), url(imgs/goodie1.svg),
     url(imgs/red_cartoon3.svg);
   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-  background-position: center bottom, center, 20% 50%, 90% 50%;
+  background-position: center bottom, center, 20% 70%, 90% 70%;
 `;
 
 export default ContentStyles;

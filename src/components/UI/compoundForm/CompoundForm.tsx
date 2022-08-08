@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setValues } from "../../../slices/inputValuesSlice";
+import { toggleResult } from "../../../slices/showResultsSlice";
 import { RootState } from "../../../store";
 import {
   Wrapper,
@@ -54,7 +55,7 @@ function CompoundForm({ children }: CompoundFormProps) {
           required
         />
         <Input
-          placeholder="Taxa de juros (%)*"
+          placeholder="Taxa de juros mensal (%)*"
           size="2em"
           name="interest"
           value={interest}
@@ -62,8 +63,8 @@ function CompoundForm({ children }: CompoundFormProps) {
           type="number"
           required
         />
-        <CompoundLink to="/dashboard">
-          <Button>Calcular</Button>
+        <CompoundLink to="/">
+          <Button onClick={() => dispatch(toggleResult())}>Calcular</Button>
         </CompoundLink>
       </FlexCollumn>
     </Wrapper>
