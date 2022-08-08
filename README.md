@@ -5,7 +5,7 @@ de maneira fácil e rápida.
 
 ## Deploy no Netlify :computer:
 
-Para ver a aplicação em ação é só clicar no link -> https://zenbit-backend.herokuapp.com/
+Para ver a aplicação em ação é só clicar no link -> https://splendorous-bombolone-1094a4.netlify.app/
 
 ## Requerimentos :rocket:
 
