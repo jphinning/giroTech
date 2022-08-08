@@ -10,6 +10,8 @@ import {
   Input,
   Button,
   CompoundLink,
+  InputDiv,
+  Label,
 } from "./CompoundFormStyle";
 
 type InputEvent = React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
@@ -45,32 +47,35 @@ function CompoundForm({ children }: CompoundFormProps) {
     <Wrapper>
       <Title>{children}</Title>
       <FlexCollumn>
-        <Input
-          placeholder="Capital Investido (R$)*"
-          size="2em"
-          name="investedMoney"
-          value={investedMoney}
-          pattern="[0-9.]+"
-          onChange={handleChange}
-          required
-        />
-        <Input
-          placeholder="Prazo (meses)*"
-          size="2em"
-          name="deadline"
-          value={deadline}
-          onChange={handleChange}
-          realValue="2"
-          required
-        />
-        <Input
-          placeholder="Taxa de juros mensal (%)*"
-          size="2em"
-          name="interest"
-          value={interest}
-          onChange={handleChange}
-          required
-        />
+        <InputDiv>
+          <Label>Capital Investido (R$)*</Label>
+          <Input
+            name="investedMoney"
+            value={investedMoney}
+            pattern="[0-9.]+"
+            onChange={handleChange}
+            type="text"
+          />
+        </InputDiv>
+        <InputDiv>
+          <Label>Prazo (meses)*</Label>
+          <Input
+            name="deadline"
+            value={deadline}
+            onChange={handleChange}
+            type="text"
+          />
+        </InputDiv>
+        <InputDiv>
+          <Label>Taxa de juros mensal (%)*</Label>
+          <Input
+            name="interest"
+            value={interest}
+            onChange={handleChange}
+            type="text"
+          />
+        </InputDiv>
+
         <CompoundLink to="/">
           <Button onClick={() => dispatch(toggleResult())}>Calcular</Button>
         </CompoundLink>
