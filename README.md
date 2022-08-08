@@ -19,7 +19,7 @@ Clone o projeto, entre na pasta e execute o script de início.
 O editor recomendado para o projeto é o **VS Code**.
 
 ```bash
-git clone git@github.com:jphinning/giroTech
+git clone git@github.com:jphinning/giroTech.git
 cd giroTech
 npm install
 npm start
