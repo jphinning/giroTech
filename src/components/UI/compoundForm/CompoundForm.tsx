@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setValues } from "../../../slices/inputValuesSlice";
 import { toggleResult } from "../../../slices/showResultsSlice";
 import { RootState } from "../../../store";
+
 import {
   Wrapper,
   Title,
@@ -18,6 +19,8 @@ type CompoundFormProps = {
 };
 
 function CompoundForm({ children }: CompoundFormProps) {
+  // const valuee = useRef();
+  // console.log(valuee);
   const { investedMoney, deadline, interest } = useSelector(
     (state: RootState) => state.inputs
   );
@@ -25,9 +28,15 @@ function CompoundForm({ children }: CompoundFormProps) {
 
   const handleChange = (e: InputEvent) => {
     const { name, value } = e.target;
+
+    const result = value
+      .replace(/[^0-9.]/g, "")
+      .replace(/(\..*?)\..*/g, "$1")
+      .replace(/^0[^.]/, "0");
+
     dispatch(
       setValues({
-        [name]: value,
+        [name]: result,
       })
     );
   };
@@ -41,8 +50,8 @@ function CompoundForm({ children }: CompoundFormProps) {
           size="2em"
           name="investedMoney"
           value={investedMoney}
+          pattern="[0-9.]+"
           onChange={handleChange}
-          type="number"
           required
         />
         <Input
@@ -51,7 +60,7 @@ function CompoundForm({ children }: CompoundFormProps) {
           name="deadline"
           value={deadline}
           onChange={handleChange}
-          type="number"
+          realValue="2"
           required
         />
         <Input
@@ -60,7 +69,6 @@ function CompoundForm({ children }: CompoundFormProps) {
           name="interest"
           value={interest}
           onChange={handleChange}
-          type="number"
           required
         />
         <CompoundLink to="/">

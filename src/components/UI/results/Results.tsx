@@ -1,17 +1,11 @@
+import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
-import { Wrapper, Title, FlexCollumn, ResultDiv } from "./ResultsStyles";
+import { compoundInterestCalc, currencyFormatter } from "../../../utils/utils";
+import { Wrapper, Title, FlexCollumn, ResultDiv, Label } from "./ResultsStyles";
 
 type CompoundFormProps = {
   children: JSX.Element | string;
-};
-
-const compoundInterestCalc = (
-  investedMoney: number,
-  deadline: number,
-  interest: number
-) => {
-  return investedMoney * (1 + interest / 100) ** deadline;
 };
 
 function CompoundForm({ children }: CompoundFormProps) {
@@ -19,21 +13,37 @@ function CompoundForm({ children }: CompoundFormProps) {
     (state: RootState) => state.inputs
   );
 
-  const totalAmmount = compoundInterestCalc(
-    investedMoney as unknown as number,
-    deadline as unknown as number,
-    interest as unknown as number
+  const totalAmmount = useMemo(
+    () =>
+      compoundInterestCalc(
+        investedMoney as unknown as number,
+        deadline as unknown as number,
+        interest as unknown as number
+      ),
+    [investedMoney, deadline, interest]
   );
 
-  const totalInterest = totalAmmount - (investedMoney as unknown as number);
+  const totalInterest = useMemo(
+    () => totalAmmount - (investedMoney as unknown as number),
+    [totalAmmount, investedMoney]
+  );
 
   return (
     <Wrapper>
       <Title>{children}</Title>
       <FlexCollumn>
-        <ResultDiv>{investedMoney}</ResultDiv>
-        <ResultDiv>{totalAmmount}</ResultDiv>
-        <ResultDiv>{totalInterest}</ResultDiv>
+        <ResultDiv color="#455a64">
+          <Label> Valor total investido</Label>
+          {currencyFormatter(investedMoney as unknown as number)}
+        </ResultDiv>
+        <ResultDiv color="#6115dd">
+          <Label> Valor total final</Label>
+          {currencyFormatter(totalAmmount as unknown as number)}
+        </ResultDiv>
+        <ResultDiv color="#117729">
+          <Label> Total em juros</Label>
+          {currencyFormatter(totalInterest as unknown as number)}
+        </ResultDiv>
       </FlexCollumn>
     </Wrapper>
   );

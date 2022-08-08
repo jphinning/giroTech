@@ -72,3 +72,11 @@ export const Title = styled.h1`
 export const CompoundLink = styled(Link)`
   width: inherit;
 `;
+
+export const Label = styled.p`
+  color: #686666;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  margin: 0;
+`;
