@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const NavLinkStyles = styled(Link)`
-  color: white;
-  font-size: 24px;
-  font-weight: 600;
+  color: #002766;
+  font-size: 18px;
+  font-weight: 400;
   &:hover,
   &:active {
     color: lightgrey;

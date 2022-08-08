@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
-import Dashboard from "./Dashboard";
-import Home from "./Home";
-import ReduxTest from "./ReduxTest";
+import Dashboard from "../pages/Dashboard";
+import Home from "../pages/Home";
+import ReduxTest from "../pages/ReduxTest";
 
 function Router() {
   return (
