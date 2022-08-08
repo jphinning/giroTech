@@ -7,9 +7,7 @@ function Navbar() {
 
   return (
     <NavbarStyles>
-      <NavLink path="/">{t("Home.title")}</NavLink>
-      <NavLink path="/dashboard">{t("Dashboard.title")}</NavLink>
-      <NavLink path="/redux-test">{t("Redux.title")}</NavLink>
+      <NavLink path="/">{t("GiroTech.title")}</NavLink>
     </NavbarStyles>
   );
 }

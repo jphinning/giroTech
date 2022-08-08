@@ -1,4 +1,4 @@
-import Router from "../navbar/Router";
+import Router from "../../router/Router";
 import ContentStyles from "./ContentStyle";
 
 function Content() {
