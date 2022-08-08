@@ -9,3 +9,11 @@ export const currencyFormatter = (number: number) => {
     maximumFractionDigits: 2, // (causes 2500.99 to be printed as $2,501)
   }).format(number);
 };
+
+export const compoundInterestCalc = (
+  investedMoney: number,
+  deadline: number,
+  interest: number
+) => {
+  return investedMoney * (1 + interest / 100) ** deadline;
+};

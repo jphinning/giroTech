@@ -1,19 +1,11 @@
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
-import { currencyFormatter } from "../../../utils/utils";
+import { compoundInterestCalc, currencyFormatter } from "../../../utils/utils";
 import { Wrapper, Title, FlexCollumn, ResultDiv, Label } from "./ResultsStyles";
 
 type CompoundFormProps = {
   children: JSX.Element | string;
-};
-
-const compoundInterestCalc = (
-  investedMoney: number,
-  deadline: number,
-  interest: number
-) => {
-  return investedMoney * (1 + interest / 100) ** deadline;
 };
 
 function CompoundForm({ children }: CompoundFormProps) {
