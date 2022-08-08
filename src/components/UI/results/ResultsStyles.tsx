@@ -24,9 +24,11 @@ export const ResultDiv = styled.div`
   font-weight: 400;
   font-size: 18px;
   line-height: 180%;
-  color: #2d2d2d;
+  color: ${(props) => props.color};
   margin: 5px;
-  padding: 15px;
+  padding: 5px 55px;
+  max-width: 20vw;
+  word-wrap: break-word;
 `;
 
 export const Title = styled.h1`
@@ -35,6 +37,14 @@ export const Title = styled.h1`
   font-weight: 400;
   font-size: 25px;
   line-height: 130%;
+`;
+
+export const Label = styled.p`
+  color: #686666;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  margin: 0;
 `;
 
 export const CompoundLink = styled(Link)`

@@ -2,7 +2,7 @@ import { Footer } from "antd/lib/layout/layout";
 import styled from "styled-components";
 
 const FooterStyles = styled(Footer)`
-  background: #111;
+  background: white;
   color: white;
   font-size: 18px;
 `;
