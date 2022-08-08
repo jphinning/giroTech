@@ -1,7 +1,8 @@
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
-import { Wrapper, Title, FlexCollumn, ResultDiv } from "./ResultsStyles";
+import { currencyFormatter } from "../../../utils/utils";
+import { Wrapper, Title, FlexCollumn, ResultDiv, Label } from "./ResultsStyles";
 
 type CompoundFormProps = {
   children: JSX.Element | string;
@@ -39,9 +40,18 @@ function CompoundForm({ children }: CompoundFormProps) {
     <Wrapper>
       <Title>{children}</Title>
       <FlexCollumn>
-        <ResultDiv>{investedMoney}</ResultDiv>
-        <ResultDiv>{totalAmmount}</ResultDiv>
-        <ResultDiv>{totalInterest}</ResultDiv>
+        <ResultDiv color="#455a64">
+          <Label> Valor total investido</Label>
+          {currencyFormatter(investedMoney as unknown as number)}
+        </ResultDiv>
+        <ResultDiv color="#6115dd">
+          <Label> Valor total final</Label>
+          {currencyFormatter(totalAmmount as unknown as number)}
+        </ResultDiv>
+        <ResultDiv color="#117729">
+          <Label> Total em juros</Label>
+          {currencyFormatter(totalInterest as unknown as number)}
+        </ResultDiv>
       </FlexCollumn>
     </Wrapper>
   );
